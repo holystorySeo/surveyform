@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import { ToastContainer } from 'react-toastify';
+import CreateFormPage from './components/pages/CreateFormPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WholeContainer>
+      <ToastContainer />
+      <Routes>
+        <Route path="/create" element={<CreateFormPage />} />
+      </Routes>
+    </WholeContainer>
   );
 }
 
 export default App;
+
+const WholeContainer = styled.div`
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
+  //   overflow-y: scroll;
+  //   position: relative;
+  //   ::-webkit-scrollbar {
+  //     /* Chrome, Safari, Opera*/
+  //     display: none;
+  //   }
+  //   -ms-overflow-style: none; /* IE and Edge */
+  //   .Toastify__toast-container {
+  //     position: absolute;
+  //     right: 0;
+  //   }
+`;
